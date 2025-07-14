@@ -1,0 +1,2 @@
+Necesito la misma explicación anterior, empaquetada correctamente en un solo bloque markdown, incluyendo los bloques de código internos con barras invertidas escapadas, para evitar cortes o conflictos de interpretación.
+Debe incluir todos los bloques de codigo formateados con barras invertidas al inicio y al cierre de cada bloque. Aquí está el formato del código: (ya sea tsx, xml, js, etc) \```tsx  Código de ejemplo  \```
