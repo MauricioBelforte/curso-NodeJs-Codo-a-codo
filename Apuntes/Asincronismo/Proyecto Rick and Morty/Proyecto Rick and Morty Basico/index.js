@@ -7,6 +7,7 @@ const pedirDatos = () => {
    .then(response => response.json())
    .then(response => {
        // Incorporamos el código que se iterará por cada elemento del array generado con el json recibido. 
+       // Aca usa un map() que devuelve el array results, que no es necesario porque itero para agregar elementos al DOM, lo mejor seria usar un forEach()
        response.results.map((personaje) => {
          const article = document.createElement('article');
          article.setAttribute('class', 'character');
