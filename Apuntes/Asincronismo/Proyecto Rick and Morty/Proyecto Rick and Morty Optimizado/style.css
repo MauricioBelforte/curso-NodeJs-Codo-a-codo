@@ -1,37 +1,43 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Passion+One:wght@400;700;900&display=swap');
 
 * {
   margin: 0;
   padding: 0;
-  /*box-sizing: border-box;*/
+  box-sizing: border-box;
 }
 
 body {
-  background-color: #3F271A;  
+  background: linear-gradient(to bottom,
+      #3F271A 0px,
+      #3F271A 500px,
+      #8AC76D 100%);
   font-family: 'Comfortaa', cursive;
   color: #2b2b2b;
   min-height: 100vh;
-  grid-template-rows: auto 1fr auto;
+
 }
 
 header {
   position: relative;
   align-items: center;
-  padding: 5rem 4rem;
+  padding: 2rem 4rem 6rem 4rem;
   background-image: url('./MLL9xUy.png');
   background-size: cover;
-  background-position: left ;
+  background-position: left;
   background-repeat: no-repeat;
   color: snow;
   text-align: left;
+  min-height: 200px;
 }
 
 .header__title {
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   color: snow;
   font-size: 5rem;
-  text-align: left;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.847);
+
+
 }
 
 img {
@@ -40,22 +46,25 @@ img {
   padding-bottom: 20px;
 }
 
-main{
+main {
   height: 100vh;
+
 }
 
-.contenedor-tarjetas{
-  max-width: 1400px;
+.contenedor-tarjetas {
+  /* max-width: 1400px; */
   height: auto;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   padding-top: 4rem;
+  padding-bottom: 4rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
+  position: relative;
 }
 
-.tarjeta{
+.tarjeta {
   width: 25%;
   min-width: 300px;
   max-height: 50%;
@@ -64,8 +73,18 @@ main{
   flex-direction: column;
   background-color: #F2C335;
   overflow: hidden;
-  justify-content:  space-around;
+  justify-content: space-around;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+
+.tarjeta:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+
 
 .flex {
   display: flex;
@@ -76,7 +95,7 @@ main{
   justify-self: center;
 }
 
-label{
+label {
   margin: 0 10px;
   font-size: 1rem;
   font-weight: bold;
@@ -86,13 +105,18 @@ label{
 
 
 
-p{
- 
-    align-content: center;
+p {
+
+  align-content: center;
 }
+
 .status {
   display: flex;
   align-items: center;
+}
+
+i {
+  vertical-align: middle;
 }
 
 .alive {
@@ -110,11 +134,63 @@ p{
   color: gray;
 }
 
-footer{
+.pie {
+
   display: grid;
   place-items: center;
   font-size: 1.2rem;
   text-align: center;
   color: snow;
-  background-color: #402319;
+  background-color: #2d7336;
+  padding: 50px;
+}
+
+
+
+/* Decoración arriba del footer */
+.contenedor-tarjetas::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  /* ajustá según el tamaño del decorativo */
+  right: 0;
+  width: 11px;
+  height: 11px;
+  background-image: url('pie.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+  pointer-events: none;
+  transform: scale(1);
+  opacity: 0;
+  /* animation: expandirDecoracion 3s ease-in-out forwards; */
+  transform-origin: bottom right;
+  
+  /* transition: transform 3s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 3s ease-in-out; */
+  /* Transición lenta por defecto (salida) */
+  transition: transform 4s ease-in, opacity 2s ease-in;
+}
+
+
+/* Hover en el main afecta al ::after */
+main:hover::after {
+  transform: scale(20);
+  opacity: 1;
+transition: transform 5s cubic-bezier(0.1, 0.8, 0.2, 0.9), opacity 5s ease-in-out;
+
+ /*  filter: drop-shadow(0 0 10px rgb(255, 255, 255)); */
+}
+
+
+@keyframes expandirDecoracion {
+  0% {
+    transform: scale(1);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(20);
+    opacity: 1;
+  }
 }

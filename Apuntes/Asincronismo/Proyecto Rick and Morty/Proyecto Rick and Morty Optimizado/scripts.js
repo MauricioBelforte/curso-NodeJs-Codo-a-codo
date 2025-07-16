@@ -105,7 +105,8 @@ function crearArticulo(personaje) {
 
     const picon = document.createElement('p');
     const i = document.createElement('i');
-    i.classList.add('fa-solid', 'fa-circle', personaje.status.toLowerCase());
+    i.classList.add('fa-solid', 'fa-fw','fa-lg', 'fa-circle', personaje.status.toLowerCase());
+    //personaje.status.toLowerCase() devuelve una palabra como Dead Unknown Alive las pasa a minusculas y el mensaje i.classList.add() le dice esa palabra es una clase, agregala  
     picon.appendChild(i);
     picon.append(` ${personaje.status}`);
 
