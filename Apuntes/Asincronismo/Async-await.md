@@ -113,6 +113,7 @@ Conclusion: .then() en las promesas no frena el flujo. En cambio, await sí lo h
 ---
 
 
+
 ## La función async
 
 La palabra clave async se utiliza para declarar una función como asíncrona. Declara que una función puede, en algún momento, esperar a que las promesas se resuelvan sin bloquear la ejecución de otras operaciones. Aquí están los detalles clave:
@@ -147,10 +148,10 @@ Pero todavía, al no utilizar el await dentro de la función, no tenemos un asin
 async function procesarDatos() {
     try {
         // Espera aquí hasta que fetch complete
-        const datos = await fetch('https://api.example.com/datos'); 
+        const respuesta = await fetch('https://api.example.com/datos'); 
         // Espera aquí hasta que la conversión a JSON complete
-        const json = await datos.json(); 
-        console.log(json);
+        const datosObtenidos  = await respuesta.json(); 
+        console.log(datosObtenidos);
     } catch (error) {
         console.error("Error al obtener datos:", error);
     }
@@ -171,3 +172,20 @@ A pesar de sus ventajas, async/await no reemplaza completamente a las promesas, 
 En conclusión, async/await es una herramienta poderosa en JavaScript que, cuando se usa adecuadamente, puede hacer que el manejo de la asincronía no sólo sea más manejable, sino también mucho más elegante y eficiente.
 
 
+---
+## IMPORTANTE: LEER PARA COMPRENDER RAPIDO
+
+En la variable respuesta esta el objeto Response.
+
+// Objeto Response
+Response {body: ReadableStream, bodyUsed: false, headers: Headers, ok: true, status: 200, ...}
+
+### Resumido para aplicar
+Pero internamente lo que hay en la variable respuesta es un string '{"mensaje":"hola"}' y cuando le hago el respuesta.json() y se resuelve, lo que obtengo es el objeto {mensaje:"hola"} **LE SACA LAS COMILLAS EXTERNAS!**. Ese objeto {mensaje:"hola"} se guarda en datosObtenidos y es un objeto Javascript. 
+
+
+### Que fue lo que paso? 
+Yendo un poco mas al detalle, respuesta.json() internamente agarro del objeto Response ReadableStream que esta en body. Ahi saco el string '{"mensaje":"hola"}' y con la funcion JSON.parse(string) o mejor dicho JSON.parse('{"mensaje":"hola"}') **LE SACA LAS COMILLAS EXTERNAS!(Las comillas de las claves dejan de verse en consola porque para js es igual mensaje: que "mensaje":)** Y devuelve una promesa.
+Esa promesa se resuelve luego del segundo .then() o con el segundo await en el otro metodo, y en datosObtenidos tenemos guardado el objeto Javascript {mensaje:"hola"}
+
+---

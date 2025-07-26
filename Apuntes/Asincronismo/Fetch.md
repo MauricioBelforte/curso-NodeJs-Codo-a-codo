@@ -4,6 +4,23 @@ El Fetch API es una tecnología moderna que permite realizar solicitudes HTTP de
 
 Fetch API es una herramienta esencial para los desarrolladores web modernos, proporcionando una interfaz limpia y fácil de usar para realizar solicitudes HTTP. A lo largo de esta clase, aprenderemos a utilizar fetch en diferentes escenarios, manejar respuestas de diversos tipos, y gestionar errores de manera efectiva.
 
+---
+## IMPORTANTE: LEER PARA COMPRENDER RAPIDO
+
+En la variable response esta el objeto Response.
+
+// Objeto Response
+Response {body: ReadableStream, bodyUsed: false, headers: Headers, ok: true, status: 200, ...}
+
+### Resumido para aplicar
+Pero internamente lo que hay en la variable response es un string '{"mensaje":"hola"}' y cuando le hago el response.json() y se resuelve, lo que obtengo es el objeto {mensaje:"hola"} **LE SACA LAS COMILLAS EXTERNAS!**. Ese objeto {mensaje:"hola"} se guarda en data y es un objeto Javascript. 
+
+
+### Que fue lo que paso? 
+Yendo un poco mas al detalle, response.json() internamente agarro del objeto Response ReadableStream que esta en body. Ahi saco el string '{"mensaje":"hola"}' y con la funcion JSON.parse(string) o mejor dicho JSON.parse('{"mensaje":"hola"}') **LE SACA LAS COMILLAS EXTERNAS!(Las comillas de las claves dejan de verse en consola porque para js es igual mensaje: que "mensaje":)** Y devuelve una promesa.
+Esa promesa se resuelve luego del segundo .then() o con el segundo await en el otro metodo, y en data tenemos guardado el objeto Javascript {mensaje:"hola"}
+
+---
 
 # 📘 GUÍA BÁSICA DE FETCH Y PROMESAS EN JAVASCRIPT
 
@@ -531,4 +548,49 @@ pedirDatos();
 
 
 
+
+---
+
+# DATOS SOBRE FETCH
+
+¡Buena! El método `fetch()` puede recibir **hasta dos parámetros**, y no más.
+
+---
+
+## 🔍 Sintaxis general
+
+```js
+fetch(url, options);
+```
+
+### 1. `url` (obligatorio)
+- Es un string con la dirección del recurso.
+- Ejemplo: `"https://api.ejemplo.com/data"`
+
+### 2. `options` (opcional)
+- **Es un objeto** con configuración adicional:
+  - Método (`GET`, `POST`, etc.)
+  - Headers (`Authorization`, `Content-Type`, etc.)
+  - Body (datos en formato JSON, texto, etc.)
+  - Modo, credenciales, cache, etc.
+
+---
+
+## 📦 Ejemplo completo
+
+```js
+fetch("https://api.ejemplo.com/data", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    Authorization: "Bearer token123"
+  },
+  body: JSON.stringify({ mensaje: "Hola mundo" })
+});
+```
+
+- `fetch()` ignora cualquier parámetro extra más allá de esos dos.
+- Si pasás un tercer parámetro por error, simplemente lo ignora y no lanza excepción.
+
+---
 

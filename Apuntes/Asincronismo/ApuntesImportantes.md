@@ -8,6 +8,8 @@ Quien resuelve las promesas? El .then() y el await
 "Cuando trabajamos con promesas, lo clave es entender si están resueltas o pendientes.
 No es que .then() o await las resuelvan directamente, sino que esperan a que lo hagan (por eso el asincronismo), y luego ejecutan acciones con el resultado."
 
+# DATO IMPORTANTE 
+Dentro del segundo .then() es donde se trabaja. Porque en su parametro data estan justamente los datos.
 
 # Quien resuelve la promesa?
 El código dentro del constructor new Promise(...) es el que decide cómo se resuelve.
@@ -30,9 +32,9 @@ new Promise((resolve, reject) => {
 
 ```
 
-🔍 ¿Y qué son resolve y reject?
-- Son funciones que vienen predefinidas por el motor de JavaScript.
-- Están ahí para que vos las llames cuando querés decir: “Listo, terminé bien” (resolve) o “algo salió mal” (reject).
+## 🔍 ¿Y qué son resolve y reject?
+`- Son funciones que vienen predefinidas por el motor de JavaScript.`
+`- Están ahí para que vos las llames cuando querés decir: “Listo, terminé bien” (resolve) o “algo salió mal” (reject).`
 - Son funciones que controlan el estado interno de la promesa.
 
 
@@ -67,7 +69,7 @@ El fetch retorna una promesa pendiente. El .then() es un mensaje que entienden l
 - response es el objeto Response que te da fetch cuando la promesa se resuelve.
 
 Qué es response.json()?
-Es un método del objeto Response que **devuelve una promesa**. Esa promesa se resuelve con los datos convertidos de texto plano JSON ejemplo: "{ "id": 1, "title": "Hola" }"; a un objeto JavaScript ejemplo: { id: 1, title: "Hola" }
+Es un método del objeto Response que **devuelve una promesa**. Esa promesa se resuelve con los datos convertidos de texto plano JSON ejemplo:  "{ "id": 1, "title": "Hola" }"; a un objeto JavaScript ejemplo: { id: 1, title: "Hola" }
 Este metodo lee el cuerpo del Response, que normalmente es un string en formato JSON. (Es decir que lee el body: ReadableStram y ahi esta el JSON)
 
 ```javascript
@@ -106,11 +108,38 @@ En el primer .then(response => response.json()), lo que tenés todavía no son l
 
 
 Si se imprime console.log(response) antes de llamar a .json(), vas a ver algo como:
-
-
 ```javascript
-Response {body: ReadableStream, bodyUsed: false, headers: Headers, ok: true, status: 200, ...}
+fetch("https://api.ejemplo.com/data")
+  .then(response => {
+    console.log(response); // 👉 Lo que se imprime es esto ⬇️
+    return response.json();
+  })
+  .then(data => console.log(data));
 ```
+
+```consola
+Response {
+  size: 0,
+  timeout: 0,
+  [Symbol(Body internals)]: { ... },
+  body: ReadableStream,
+  headers: Headers {
+    'content-type': 'application/json',
+    'x-ratelimit-limit': '100',
+    'x-ratelimit-remaining': '99'
+  },
+  ok: true,
+  status: 200,
+  statusText: 'OK',
+  url: 'https://api.ejemplo.com/data',
+  redirected: false,
+  type: 'cors',
+  ...
+}
+```
+
+*Luego mas adelante el response.json() se encarga de extraer los datos del cuerpo cuando lo llamás en el siguiente paso*
+
 
 Si tratás de hacer console.log(response.json()) directamente, vas a ver algo curioso: no vas a obtener los datos, sino algo como esto 👇
 

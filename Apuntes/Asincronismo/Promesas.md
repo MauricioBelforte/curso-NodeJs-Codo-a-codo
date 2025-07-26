@@ -6,7 +6,7 @@ Una promesa representa un valor que aún no está disponible, pero lo estará m�
 - ❌ Rechazada (rejected): hubo un error.
 - ⏳ Pendiente (pending): sigue en proceso.
 
-
+## Declaracion:
 ```javascript
     const miPromesa = new Promise((resolve, reject) => {
       const todoOk = true;
@@ -34,9 +34,9 @@ new Promise((resolve, reject) => {
 
 ```
 
-🔍 ¿Y qué son resolve y reject?
-- Son funciones que vienen predefinidas por el motor de JavaScript.
-- Están ahí para que vos las llames cuando querés decir: “Listo, terminé bien” (resolve) o “algo salió mal” (reject).
+## 🔍 ¿Y qué son resolve y reject?
+- `Son funciones que vienen predefinidas por el motor de JavaScript`.
+- E`stán ahí para que vos las llames cuando querés decir: “Listo, terminé bien” (resolve) o “algo salió mal” (reject)`.
 - Son funciones que controlan el estado interno de la promesa.
 
 
@@ -62,8 +62,8 @@ El .then() es un mensaje que entienden las promesas.
 ```
 
 ## LO MAS IMPORTANTE
-**- .then() recibe el valor que se pasó a resolve()** en el argumento de su funcion, en este caso se llama resultado.
-**- .catch() captura lo que se pasó a reject()** en el argumento de su funcion, en este caso se llama error.
+**- .then() recibe el valor que se pasó a resolve()** en el argumento de la funcion resolve(), en este caso se llama resultado.
+**- .catch() captura lo que se pasó a reject()** en el argumento de la funcion reject(), en este caso se llama error.
 
 
 resolve("¡Promesa cumplida!") ───▶ then((resultado) => ...)

@@ -39,6 +39,41 @@ Se usa cuando querés:
 - Guardarlos en `localStorage` o en un archivo
 - Registrarlos para logging o debugging
 
+
+📦 `JSON.stringify()` en JavaScript sirve para **convertir un objeto o valor en una cadena JSON válida** — es decir, transforma datos JavaScript (como objetos, arrays, números o strings) en un texto plano que puede ser enviado por red, almacenado o registrado en logs.
+
+---
+
+### 🧠 Ejemplo básico
+
+```js
+const datos = { usuario: "Mauricio", mensaje: "Hola bot" };
+
+const json = JSON.stringify(datos);
+
+console.log(json);
+// 👉 Resultado: '{"usuario":"Mauricio","mensaje":"Hola bot"}'
+```
+
+---
+
+### 🚀 ¿Para qué se usa en proyectos como el tuyo?
+
+- Para enviar datos al backend con `fetch(...)`, como hiciste vos:
+
+  ```js
+  fetch("/api/chat", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ message: mensajeDelUsuario })
+  });
+  ```
+
+  > Sin el `JSON.stringify`, el `body` sería un objeto, y eso no se puede enviar directamente en una petición HTTP — tiene que ser texto plano es decir un string que va por la url del navegador.
+
+---
+
+
 ---
 
 ### `JSON.parse(cadena)`
