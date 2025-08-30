@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles | CaC-Movies</title>
+    
+    <!-- zona favicon -->
+    <link rel="CaC-Movies icon" href="../favicon.ico" type="image/x-icon">
+    
+    <!-- zona de script para activar íconos -->
+    <script src="https://kit.fontawesome.com/fa04600604.js" crossorigin="anonymous"></script>
+</head>
+
+
+<!-- cuerpo -->
+<body>
+      <!-- diseño de encabezado -->
+    <header>
+        <!-- diseño de la barra de navegación -->
+        <nav>
+            <!-- espacio del logo OJO CON EL MENÚ QUITAMOS TENDENCIAS  -->
+            <a href="../index.html"><i class="fa-solid fa-film"></i>CaC-Movies</a> <!-- CORREGIMOS LA DIRE -->
+            <!-- diseño del menú con etiqueta de listas desordenadas -->
+            <ul type="square">
+                <!-- cada item li es un elemento del menú CORREGIMOS-->
+                <li><a href="./register.html" title="Haz click para registrarte">Registrarse</a></li>
+                <!-- trabajamos con enlaces absolutos-->
+                <li>
+                    <a href="https://developer.themoviedb.org/docs" target="_blank"
+                        title="Haz click para ir a la API">API Movie</a>
+                </li>
+                <li><a href="#"></a><span>Iniciar sesion</span></li>
+                <!-- los espacios en blanco se dan con caracteres especiales non-braeking space &NonBreakingSpace; ó &nbsp-->
+            </ul>
+        </nav>
+    </header>
+    <!-- seccion principal -->
+    <main>
+        <section id="detail">
+            <div class="detail-container">
+                <!-- sección de imagen de portada -->
+                <div class="detail-img">
+                    <img src="../static/img/mario.jpg" alt="mario pelicula 2023">
+                </div>
+                <!-- seccion de detalles -->
+                <div class="detail-info">
+                    <h1>The Super Mario Bros. Movie (2023)</h1>
+                    <p>04/05/2023 • Animation, Family, Adventure, Fantasy, Comedy • 1h 33m</p>
+                    <h3>Overview</h3>
+                    <p>While working underground to fix a water main, Brooklyn plumbers—and brothers—Mario and Luigi are transported down a mysterious pipe and wander into a magical new world. But when the brothers are separated, Mario embarks on an epic quest to find Luigi.</p>
+                    
+                    <!-- TAREA PARA LA CASA 1 hacer details-credits -->
+                    <div class="detail-credits">
+                        <div>
+                            <h4>Aaron Horvath</h4>
+                            <p>Director</p>
+                        </div>
+                        <div>
+                            <h4>Michael Jelenic</h4>
+                            <p>Director</p>
+                        </div>
+                        <div>
+                            <h4>Matthew Fogel</h4>
+                            <p>Writer</p>
+                        </div>
+                    </div>
+                
+                </div>                
+            </div>
+        </section>
+
+        <!-- seccion trailer de la pelicula -->
+        <section id="trailer">
+            <div class="trailer-container">
+                <h3>Ver trailer</h3>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/RjNcTBXTk4I?si=7fnK8NtlxetW0d1R" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
+            </div>
+            <!-- informacion multimedios de la pelicula -->
+            <div class="trailer-info">
+                <!-- redes sociales -->
+                <div class="trailer-socialmedia">
+                    <ul>
+                        <li><a href="https://www.facebook.com/supermariomovie" target="_blank"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="https://twitter.com/supermariomovie" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="https://instagram.com/supermariomovie/"><i class="fab fa-instagram" target="_blank" aria-hidden="true"></i></a></li>
+                        <li><a href="https://www.thesupermariobros.movie/"><i class="fas fa-link" target="_blank" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+                
+                <!-- TAREA PARA LA CASA 2 REALIZAR OTRAS INFORMACIONES COLOCAR LOS ELEMENTOS EN UNA TABLA -->
+                <!-- otras infos sobre la peli -->
+                <div class="trailer-others-info">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th colspan="2">Información</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Estado</strong></td>
+                                <td>Estrenado</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Idioma Original</strong></td>
+                                <td>Ingles</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Presupuesto</strong></td>
+                                <td> $100.000.000,00</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Recaudación</strong></td>
+                                <td> $1.347.013.866,00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+           
+            </div>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Usuarios CaC-Movies</title>
+    
+    <!-- zona favicon -->
+    <link rel="CaC-Movies icon" href="../favicon.ico" type="image/x-icon">
+
+    <!-- zona de script para activar íconos -->
+    <script src="https://kit.fontawesome.com/fa04600604.js" crossorigin="anonymous"></script>
+</head>
+
+<!-- cuerpo -->
+<body>
+    <!-- Encabezado -->
+    <header>
+        <nav>
+            <a href="../index.html"><i class="fa-solid fa-film"></i>CaC-Movies</a>
+        </nav>
+    </header>
+    <!-- zona del formulario de registro -->
+    <main>
+        <!-- formulario -->
+        <section id="form-wrapper">
+            <!--ATRIBUTOS: 
+                action: indica la dirección de destino de los datos del form, es decir la dirección del servidor hacia donde enviamos 
+                method:
+                    GET: Los datos del formulario se envían como parte de la URL en una cadena de consulta (query string). 
+                    Este método es útil para enviar datos pequeños y no confidenciales, como parámetros de búsqueda. 
+                    Los datos son visibles en la URL.
+                    POST:  Los datos del formulario se envían en el cuerpo de la solicitud HTTP. 
+                    Este método es más seguro y se utiliza para enviar datos confidenciales, como contraseñas o información personal. 
+                    Los datos no son visibles en la URL. 
+                target: si deseamos que la respuesta se abra en otra ventana o en la misma (_blank)
+                enctype: tipo de codificación, para clave-valor, archivos binarios (carga de archivos), texto plano.
+                novalidate: inica que el navegador no debe validar los campos antes de enviarlos. 
+                            Esto es útil cuando realizamos una validación personalizada en JS               
+            -->
+
+            <form action="#" id="formRegister" method="post" novalidate>
+                <div class="form-control">
+                    <label>Nombre</label>
+                    <input type="text" required name="firstname" id="firstname">
+                </div>
+
+                <!-- ATRIBUTOS DEL INPUT
+                type: se creará un campo de entrada de texto. Otros son password, chackbox, radio, number, email, date y file
+                required: Este atributo es un atributo booleano que indica que el campo de entrada es obligatorio.
+                name: Este atributo especifica el nombre del campo.
+                -->
+
+                <div class="form-control">
+                    <label>Apellido</label>
+                    <input type="text" required name="lastname" id="lastname">
+                </div>
+                <div class="form-control">
+                    <label>Email</label>
+                    <input type="email" required name="email" id="email">
+                </div>
+                <div class="form-control">
+                    <label>Contraseña</label>
+                    <input type="password" required name="password" id="password">
+                </div>
+                <div class="form-control">
+                    <label id="label-birthdate">Fecha de Nacimiento</label>
+                    <input type="date" required name="birthdate" id="birthdate">
+                </div>
+                <div class="form-control">
+                    <select name="country" id="country" class="form-select">
+                        <option value="">País</option>
+                        <option value="AR">Argentina</option>
+                        <option value="BO">Bolivia</option>
+                        <option value="BR">Brasil</option>
+                        <option value="CH">Chile</option>
+                        <option value="CO">Colombia</option>
+                        <option value="EC">Ecuador</option>
+                        <option value="PY">Paraguay</option>
+                        <option value="PE">Perú</option>
+                        <option value="UY">Uruguay</option>
+                        <option value="VE">Venezuela</option>
+                    </select>
+                </div>
+                <div class="form-terms">
+                    <div class="terms">
+                        <input type="checkbox" id="terms">
+                        <label for="terms">Acepto términos y condiciones</label>
+                    </div>
+                </div>
+                <!-- boton de acción -->                
+                <button type="submit">Registrarse</button>
+                <button type="reset">Borrar todo</button>
+                <!-- ATRIBUTOS DE BUTTON 
+                    type: indica el tipo de acción a realizar, submit indica que se enviará la información
+                    Otros valores de type son, 
+                    button: no realiza acción alguna
+                    reset: borra todos los campos
+                -->
+                <div class="form-help">
+                    <a href="#">Necesitas ayuda?</a>
+                </div>
+            </form>
+        </section>
+       
+
+    </main>
+
+    <a href="../index.html"><i class="fa-solid fa-film"></i>CaC-Movies</a>
+
+    <!-- zona del pie de página el mismo del index-->
+    <footer>
+        <!-- por cuestiones de diseño utilizamos elementos a -->
+        <a href="#">Términos y condiciones</a>
+        <a href="#">Preguntas frecuentes</a>
+        <a href="#">Ayuda</a>
+        <a href="#">Administrador de Películas</a>
+    </footer>
+    
+</body>
+</html>
