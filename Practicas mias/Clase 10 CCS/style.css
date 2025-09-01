@@ -1,0 +1,89 @@
+/*Flexbox y Media Queries*/
+
+html{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+}
+
+header{
+    background-color: cornflowerblue;
+    height: 10vh;
+    /*Hacemos flexible el header*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main{
+    height: 80vh;
+}
+
+footer{
+    background-color:lightcoral;
+    height: 10vh;
+    /*Hacemos flexible el footer*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.container{
+    display: flex;
+    flex-direction:row; /*Alineamos los elementos en fila*/
+    flex-wrap: wrap; /*rompe la formación y permite el reordenamiento multilínea*/
+    justify-content: space-around;
+    align-items: center;
+    /*Distribuye los elementos de manera uniforme*/
+    /* Distribuye los elementos horizontalmente, con espacio entre ellos */
+    /*opciones de distribucion de objetos individuales: flex-start, flex-end, center
+    de distribucion de objetos de filas: space-between, space-around, space-evenly(mismo espacio intro y exter)*/
+    
+    /*Centra los elementos verticalmente*/
+
+    height: 100%;
+    background-color: beige;
+}
+
+
+.item{
+   width: 50px;
+   height: 50px;
+   border: 2px solid black; 
+   background-color: lightblue;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+  
+}
+
+
+@media only screen and (max-width:600px) {
+    
+    .container{
+        flex-direction: column;
+        background-color: lightgreen;
+
+    }
+
+    .item{
+        width: 25%;
+        height: 100px;
+
+    }
+}
+
+
+/* de 601 a 768px */
+
+@media only screen and (min-width: 601px) and (max-width: 768px){
+    .container {
+
+        background-color: lightgrey;
+    }
+
+    .item {
+        width: 100px;
+        height: 100px;
+    }
+}
