@@ -1,0 +1,164 @@
+/* Clase 11 Grid CSS*/
+/* Estilos a las etiquetas */
+
+body, html{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Selectores de clase */
+
+.container{
+    /* dimensiones */
+    max-width: 980px;
+    padding: 0;
+    margin: 0 auto;
+    /* predisponemos al padre a grillas */
+    display: grid;
+    /* cantidad de columnas y sus dimensiones */
+    grid-template-columns: repeat(6, 1fr); /* 6 columnas de 1 fraccion */
+    /* dividimos en filas */
+    grid-template-rows: 10vh 75vh 10vh;
+    /* dimensiones de los gap */
+    gap: 10px; /* vertical y horizontal */
+}
+
+.main{
+    /*predisponemos a main a grillas*/
+    display: grid;
+    margin: 0 auto;
+    /*division en columnas*/
+    grid-template-columns: repeat(6, 1fr);
+    /*cuantas columnas ocupa el padre?*/
+    grid-column-start:1; /*gap de borde izquierdo*/
+    grid-column-end:7; /*gap de borde derecho, 7 -1 da 6 columnas*/
+    /*valor del gap*/
+    gap:10px;
+
+
+    /*grid-column-end: span 6;  seria teniendo en cuenta las columnas otra forma de hacer el start y end*/
+}
+
+
+.aside{
+    /*cuantas columnas del padre va a ocupar*/
+    grid-column-start:1;
+    grid-column-end:3; /*el numero corresponde al gap que limita la columna*/
+    background-color: aqua;
+    padding: 10px;
+}
+
+/*Estilos del contenido de aside*/
+.aside h2{
+    font-size: 1.5rem;
+}
+
+.aside ul li a{
+    text-decoration: none;
+    color: #010732;
+}
+
+.aside ul li a:hover{
+    text-decoration: underline;
+}
+.aside ul li {
+    list-style: none;
+    /* list-style-type: none; */
+}
+
+.section{
+    /*cuantas columnas del padre ocupa section?*/
+    grid-column-start: 3 ;
+    grid-column-end: 7 ;
+    background-color: lightblue;
+    padding: 10px;
+}
+
+/*HEADER/FOOTER*/
+.nav, .nav ul{
+    /*predisponemos a los padres a comportamiento de grillas*/
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 1fr;
+    /*cuantas columnas ocupamos*/
+    grid-column-start: 1;
+    grid-column-end: 7;
+    /*valor de los vacios o gap*/
+    gap: 10px;
+    /*geometria*/
+    padding: 0;
+    margin: 0;
+    background-color: #333;
+}
+
+.nav ul li a{
+    color: beige;
+    text-decoration: none;
+}
+.nav ul li{
+    list-style: none;
+    /*predisponemos a li a comportamiento flexible*/
+    display: flex;
+    margin: 0;
+    padding: 0;
+    /*alineamientos*/
+    justify-content: center;
+    align-items: center;
+}
+
+
+/*pseudoselector :nth-child() first-child*/
+.footer ul li:nth-child(1){
+    grid-column: 2;
+}
+
+.header ul li:nth-child(1){
+    grid-column: 4;
+}
+
+/*MENU DESPLEGABLE*/
+.header ul li .dropdown-content{
+    /*Personalizamos la posicion de drop...*/
+    position: absolute;
+
+    /*ubicamos la caja drop*/
+    top:10vh;
+    right: 0;
+
+    /*Ubicamos el contenido de drop en columna*/
+    display: flex;
+    flex-direction: column;
+
+    /*predisponemos a drop a una transicion*/
+    transition: all 0.5s;
+
+    opacity: 0;
+    /*
+   background-color: #333;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    width: 150px;
+    height: 100px;
+    justify-content: space-evenly;
+    */
+}
+
+
+.header ul{
+    position: relative;
+}
+
+.header ul li:hover .dropdown-content{
+    opacity: 1;
+}
+
+/*estilos al menu desplegable*/
+.header ul li .dropdown-content li{
+    padding: 20px 40px;
+    transition: all 0.3s;
+}
+
+.header ul li .dropdown-content li:hover{
+    background-color: #575757;
+}
